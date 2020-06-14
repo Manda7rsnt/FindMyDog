@@ -1,0 +1,248 @@
+// SPECIAL SCENE: @start is a special scene that tells the framework to start your game at this scene. It can be anywhere in your file. If no @start scene is present, the framework will start with the first scene in the file.
+@start
+	*say
+	Welcome to find my dog skill. I can help you in situations where you find any 
+	stray dog and you have no clue what to do next. I can tell you about nearest 
+	pet clinic or recommend breed specific food or medicinal support.
+	*then
+        ->firstEncounter
+
+@firstEncounter
+	*say
+	    It seems you have found a doggo. Is it abandoned or lost.
+	
+	*then
+    hear abandoned {
+        ->abandoned
+    }
+    hear lost {
+        -> lost
+    }
+@abandoned
+    *say
+    It's highly likely that dog is alone in the world now. if you can afford then
+    you can adopt cause dog are cute or you give to the dog shelter home. You can 
+    say adopt or shelter home.
+    
+    *then
+    hear adopt, i want to take it, take home{
+    ->adopt
+    }
+    hear shelter {
+    ->shelter
+    }
+    
+@shelter
+    *say
+    Karuna Animal Shelter is the nearest dog shelter i have found according 
+    to your location and it's 20 minutes away. i will send the details to your smartphone. you are doing
+    good work.
+    
+    *then
+    -> closing
+
+    
+@adopt
+    *say
+    Congratulations! You have saved one doggo among the 35 millions. You are 
+    a good human. keep up the good work.
+    
+    *then
+    -> closing
+
+
+@lost
+    *say
+    You can look for the owner or dog's mom, you can took it for short time till the owner finds it
+    or if you can afford then you can adopt cause dog are cute. you can say adopt or
+    temporary or look for the owner.
+    *then
+    hear adopt, take home {
+    ->adopt
+    }
+    hear temporary, short time {
+    ->temporary
+    }
+    hear look for the owner or dog's mom {
+    ->owner
+    }
+
+@temporary
+    *say
+    you can take it to your home till the owner comes to your place. Do you know what kind of food dog usually eat?
+    
+    *then
+    hear yes{
+    ->foodYes
+    }
+    hear no{
+    ->foodNo
+    }
+
+@foodYes
+    *say
+    It seems you know everything. I have a feeling that you are going to take a good care of dog.
+    
+   *then
+    -> closing
+
+    
+@foodNo
+    *say
+    you can feed Nootie Freshly Baked Cookie, Real Chicken and Peanut Butter. Do you where to find 
+    dog food in your locality?
+    *then
+    hear yes{
+    ->foodLocYes
+    }
+    
+    hear no{
+    -> foodLocNo
+    }
+@foodLocYes
+    *say
+    Its good that you know about the dog food.
+    *then
+    ->clean
+    
+@foodLocNo
+    *say
+    Platinum city supermarket is the nearest shop i have found according 
+    to your location and its 10 minutes away. i will send the details to your smartphone.
+    *then
+    ->clean
+    
+@clean
+    *say
+    Do you know what cleaning precautions you have to take before bringing dog inside
+    the home.
+    *then 
+    hear yes{
+    ->cleanYes
+    }
+    hear no {
+    ->cleanNo
+    }
+    
+@cleanYes
+    *say
+    its good that you know about this.
+    *then 
+    ->foodLocNo
+    
+@cleanNo
+    *say
+    I can added some dog grooming product into your amazon wishlist. You can have look and place order,
+    or i can send location of store or you can take help from your friend who have pet.
+    you can say wishlist, send location, or help from friend.
+    *then
+    hear wishlist, amazon {
+    ->amazon
+    }
+    hear send location {
+    ->foodLocNo
+    }
+    hear help from friend{
+    ->friendHelp
+    }
+    
+@amazon
+    *say
+    check your amazon wishlist.
+    *then
+    -> closing
+
+@friendHelp
+    *say
+    tell me name of your friend and i will place a call.
+    
+    *then
+    -> closing
+
+    
+@owner
+    *say
+    Hey you have found a someone's lost love. You can post it on social media 
+    like instagram or facebook with hashtag lost and found. it helps the algorithm to
+    reach more to the users.
+    
+    *then
+    -> closing
+
+@closing
+    *say
+    If you need assistance further you can call find my dog and i will help you. Thansk for visiting.
+    *then
+    >> END
+
+    
+@global prepend
+    *show
+        // add visuals to every scene
+        template: 'default'
+        //background:'https://sfb-framework.s3.amazonaws.com/examples/images/alps.jpg'
+        title: 'Find My Dog'
+        subtitle: ''
+
+// SPECIAL SCENE: "@global append" is a special scene and allows you to add content or instructions to the end of every scene set
+@global append
+    *then
+        // listen everywhere for a few helpful phrases
+        hear start over, restart {
+            // Tell the framework to restart from the beginning
+            >> RESTART
+        }
+        hear repeat {
+            // Tell the framework to repeat everything the player just heard. You can use >> REPROMPT which only plays the reprompt content
+            >> REPEAT
+        }
+        hear help {
+            -> help
+        }
+        hear go back {
+            >> back
+        }
+        // if the player hasn't heard the help message yet and says something the framework didn't catch, play the help message
+        if !helped {
+            hear * {
+                -> help
+            }
+        }
+
+// SPECIAL SCENE: @resume is a special scene that will play when the player comes back to the game after leaving
+@resume
+	*say
+		Welcome back to find my dog skill. Would you like to pick up where you last left off?
+	*then
+		hear yes {
+            // Tell the framework to pick up where they last left off
+			>> RESUME
+		}
+		hear no {
+			>> RESTART
+		}
+
+// SPECIAL SCENE: @pause is a special scene that plays before the skill pauses
+@pause
+	*say
+		Thanks for visiting. 
+	*then
+		>> PAUSE
+
+@end
+	*say
+		Thanks for visiting. Would you like to start over or take a break?
+	*then
+		hear take a break {
+			>> END
+		}
+
+@help
+    *say
+        Here's the help menu. Make choices to navigate the story or you can tell me to start over or stop. Picking up where you left off. 
+    *then
+        // flag that player has heard this
+        flag helped
+
+        // go back to last scene.
+        >> BACK

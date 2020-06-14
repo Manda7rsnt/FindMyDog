@@ -1,0 +1,3846 @@
+{
+    "pluginName": "default",
+    "scenes": [
+        {
+            "contents": [
+                {
+                    "narration": "Welcome to find my dog skill. I can help you in situations where you find any \n\tstray dog and you have no clue what to do next. I can tell you about nearest \n\tpet clinic or recommend breed specific food or medicinal support.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "firstEncounter",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "start",
+            "customProperties": {
+                "sourceLocation": 226,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "It seems you have found a doggo. Is it abandoned or lost.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "abandoned"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "abandoned",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexaIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "lost"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "lost",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexbIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "firstEncounter",
+            "customProperties": {
+                "sourceLocation": 498,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "It's highly likely that dog is alone in the world now. if you can afford then\n    you can adopt cause dog are cute or you give to the dog shelter home. You can \n    say adopt or shelter home.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "adopt",
+                                    "i want to take it",
+                                    "take home"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "adopt",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexcIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "shelter"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "shelter",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexdIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "abandoned",
+            "customProperties": {
+                "sourceLocation": 677,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Karuna Animal Shelter is the nearest dog shelter i have found according \n    to your location and it's 20 minutes away. i will send the details to your smartphone. you are doing\n    good work.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "closing",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "shelter",
+            "customProperties": {
+                "sourceLocation": 1016,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Congratulations! You have saved one doggo among the 35 millions. You are \n    a good human. keep up the good work.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "closing",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "adopt",
+            "customProperties": {
+                "sourceLocation": 1267,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You can look for the owner or dog's mom, you can took it for short time till the owner finds it\n    or if you can afford then you can adopt cause dog are cute. you can say adopt or\n    temporary or look for the owner.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "adopt",
+                                    "take home"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "adopt",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexcIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "temporary",
+                                    "short time"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "temporary",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexeIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "look for the owner or dog's mom"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "owner",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexfIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "lost",
+            "customProperties": {
+                "sourceLocation": 1434,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "you can take it to your home till the owner comes to your place. Do you know what kind of food dog usually eat?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "foodYes",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "foodNo",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "temporary",
+            "customProperties": {
+                "sourceLocation": 1844,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "It seems you know everything. I have a feeling that you are going to take a good care of dog.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "closing",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "foodYes",
+            "customProperties": {
+                "sourceLocation": 2062,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "you can feed Nootie Freshly Baked Cookie, Real Chicken and Peanut Butter. Do you where to find \n    dog food in your locality?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "foodLocYes",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "foodLocNo",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "foodNo",
+            "customProperties": {
+                "sourceLocation": 2213,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Its good that you know about the dog food.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "clean",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "foodLocYes",
+            "customProperties": {
+                "sourceLocation": 2449,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Platinum city supermarket is the nearest shop i have found according \n    to your location and its 10 minutes away. i will send the details to your smartphone.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "clean",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "foodLocNo",
+            "customProperties": {
+                "sourceLocation": 2544,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Do you know what cleaning precautions you have to take before bringing dog inside\n    the home.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "cleanYes",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "cleanNo",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "clean",
+            "customProperties": {
+                "sourceLocation": 2755,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "its good that you know about this.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "foodLocNo",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "cleanYes",
+            "customProperties": {
+                "sourceLocation": 2956,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "I can added some dog grooming product into your amazon wishlist. You can have look and place order,\n    or i can send location of store or you can take help from your friend who have pet.\n    you can say wishlist, send location, or help from friend.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "wishlist",
+                                    "amazon"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "amazon",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexgIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "send location"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "foodLocNo",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexhIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help from friend"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "friendHelp",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexiIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "cleanNo",
+            "customProperties": {
+                "sourceLocation": 3046,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "check your amazon wishlist.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "closing",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "amazon",
+            "customProperties": {
+                "sourceLocation": 3477,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "tell me name of your friend and i will place a call.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "closing",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "friendHelp",
+            "customProperties": {
+                "sourceLocation": 3552,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Hey you have found a someone's lost love. You can post it on social media \n    like instagram or facebook with hashtag lost and found. it helps the algorithm to\n    reach more to the users.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "closing",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "owner",
+            "customProperties": {
+                "sourceLocation": 3666,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "If you need assistance further you can call find my dog and i will help you. Thansk for visiting.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "ending",
+                            "parameters": {}
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "closing",
+            "customProperties": {
+                "sourceLocation": 3907,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        }
+                    ]
+                }
+            ],
+            "id": "global prepend",
+            "customProperties": {
+                "sourceLocation": 4054,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "",
+                    "sceneDirections": [
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "global append",
+            "customProperties": {
+                "sourceLocation": 4414,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Welcome back to find my dog skill. Would you like to pick up where you last left off?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "{resume}",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {}
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "resume",
+            "customProperties": {
+                "sourceLocation": 5255,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Thanks for visiting.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "pause",
+                            "parameters": {}
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "pause",
+            "customProperties": {
+                "sourceLocation": 5574,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Thanks for visiting. Would you like to start over or take a break?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "take a break"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "ending",
+                                        "parameters": {}
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexjIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "end",
+            "customProperties": {
+                "sourceLocation": 5630,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Here's the help menu. Make choices to navigate the story or you can tell me to start over or stop. Picking up where you left off.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "title": "Find My Dog",
+                                "subtitle": ""
+                            },
+                            "sourceScene": "global prepend"
+                        },
+                        {
+                            "directionType": "flag",
+                            "parameters": {
+                                "variableName": "helped"
+                            }
+                        },
+                        {
+                            "directionType": "back",
+                            "parameters": {
+                                "count": 1
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start over",
+                                    "restart"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "restart",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StartOverIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "repeat"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "repeat",
+                                        "parameters": {},
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.RepeatIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "help"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "help",
+                                            "targetSceneProperty": "narration"
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.HelpIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "go back"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "back",
+                                        "parameters": {
+                                            "count": 1
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent"
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{helped}",
+                                "directions": [
+                                    {
+                                        "directionType": "choice",
+                                        "parameters": {
+                                            "utterances": [
+                                                "*"
+                                            ],
+                                            "saveToHistory": "true",
+                                            "directions": [
+                                                {
+                                                    "directionType": "go to",
+                                                    "parameters": {
+                                                        "target": "help",
+                                                        "targetSceneProperty": "narration"
+                                                    },
+                                                    "sourceScene": "global append"
+                                                }
+                                            ],
+                                            "utteranceIDs": []
+                                        },
+                                        "sourceScene": "global append"
+                                    }
+                                ]
+                            },
+                            "sourceScene": "global append"
+                        }
+                    ]
+                }
+            ],
+            "id": "help",
+            "customProperties": {
+                "sourceLocation": 5754,
+                "sourceID": "story.abc"
+            }
+        }
+    ],
+    "storyID": "findmydog",
+    "storyTitle": "FindMyDog",
+    "alexaVoiceModel": {
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "flexaIntent",
+                    "samples": [
+                        "abandoned"
+                    ]
+                },
+                {
+                    "name": "flexbIntent",
+                    "samples": [
+                        "lost"
+                    ]
+                },
+                {
+                    "name": "flexcIntent",
+                    "samples": [
+                        "adopt",
+                        "i want to take it",
+                        "take home"
+                    ]
+                },
+                {
+                    "name": "flexdIntent",
+                    "samples": [
+                        "shelter"
+                    ]
+                },
+                {
+                    "name": "flexeIntent",
+                    "samples": [
+                        "temporary",
+                        "short time"
+                    ]
+                },
+                {
+                    "name": "flexfIntent",
+                    "samples": [
+                        "look for the owner or dog's mom"
+                    ]
+                },
+                {
+                    "name": "flexgIntent",
+                    "samples": [
+                        "wishlist",
+                        "amazon"
+                    ]
+                },
+                {
+                    "name": "flexhIntent",
+                    "samples": [
+                        "send location"
+                    ]
+                },
+                {
+                    "name": "flexiIntent",
+                    "samples": [
+                        "help from friend"
+                    ]
+                },
+                {
+                    "name": "flexjIntent",
+                    "samples": [
+                        "take a break"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent"
+                },
+                {
+                    "name": "AMAZON.NextIntent"
+                },
+                {
+                    "name": "AMAZON.NoIntent"
+                },
+                {
+                    "name": "AMAZON.PauseIntent"
+                },
+                {
+                    "name": "AMAZON.PreviousIntent"
+                },
+                {
+                    "name": "AMAZON.RepeatIntent"
+                },
+                {
+                    "name": "AMAZON.ResumeIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent"
+                },
+                {
+                    "name": "AMAZON.StartOverIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "AMAZON.YesIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent"
+                },
+                {
+                    "name": "AMAZON.PageUpIntent"
+                },
+                {
+                    "name": "AMAZON.PageDownIntent"
+                },
+                {
+                    "name": "AMAZON.MoreIntent"
+                },
+                {
+                    "name": "AMAZON.FallbackIntent"
+                }
+            ],
+            "invocationName": "find my dog"
+        }
+    }
+}

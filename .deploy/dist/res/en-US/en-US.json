@@ -1,0 +1,142 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "flexaIntent",
+                    "samples": [
+                        "abandoned"
+                    ]
+                },
+                {
+                    "name": "flexbIntent",
+                    "samples": [
+                        "lost"
+                    ]
+                },
+                {
+                    "name": "flexcIntent",
+                    "samples": [
+                        "adopt",
+                        "i want to take it",
+                        "take home"
+                    ]
+                },
+                {
+                    "name": "flexdIntent",
+                    "samples": [
+                        "shelter"
+                    ]
+                },
+                {
+                    "name": "flexeIntent",
+                    "samples": [
+                        "temporary",
+                        "short time"
+                    ]
+                },
+                {
+                    "name": "flexfIntent",
+                    "samples": [
+                        "look for the owner or dog's mom"
+                    ]
+                },
+                {
+                    "name": "flexgIntent",
+                    "samples": [
+                        "wishlist",
+                        "amazon"
+                    ]
+                },
+                {
+                    "name": "flexhIntent",
+                    "samples": [
+                        "send location"
+                    ]
+                },
+                {
+                    "name": "flexiIntent",
+                    "samples": [
+                        "help from friend"
+                    ]
+                },
+                {
+                    "name": "flexjIntent",
+                    "samples": [
+                        "take a break"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent"
+                },
+                {
+                    "name": "AMAZON.NextIntent"
+                },
+                {
+                    "name": "AMAZON.NoIntent"
+                },
+                {
+                    "name": "AMAZON.PauseIntent"
+                },
+                {
+                    "name": "AMAZON.PreviousIntent"
+                },
+                {
+                    "name": "AMAZON.RepeatIntent"
+                },
+                {
+                    "name": "AMAZON.ResumeIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent"
+                },
+                {
+                    "name": "AMAZON.StartOverIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "AMAZON.YesIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent"
+                },
+                {
+                    "name": "AMAZON.PageUpIntent"
+                },
+                {
+                    "name": "AMAZON.PageDownIntent"
+                },
+                {
+                    "name": "AMAZON.MoreIntent"
+                },
+                {
+                    "name": "AMAZON.FallbackIntent"
+                }
+            ],
+            "invocationName": "find my dog"
+        }
+    }
+}
